@@ -26,7 +26,7 @@ CHIP_FAMILY = samd51
 CHIP_VARIANT = SAMD51J19A
 ```
 
-And I modified it to SAMD51J18A since I was using a SAMD51J18A, not a SAMD51J19A:
+And I modified it to SAMD51J18A since I was using a SAMD51J18A:
 ```
 CHIP_FAMILY = samd51
 CHIP_VARIANT = SAMD51J18A
