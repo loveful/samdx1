@@ -4,4 +4,4 @@ This guide explains how to modify memory addresses and memory allocation size fo
 
 # Why do we need this?
 
-Generally, UF2-SAMDX1 bootloaders tend to work with MPUs in the same series, however the memory mapping can sometimes be different. For instance, if you attempt to flash a Feather M4 bootloader (SAMD51J*19*A) onto a board with the SAMD51J*18*A, it may seem like the flash was successful. But, when you try to upload code via the Arduino IDE, you could run into memory corruption that could cause the device to not be recognized. Unfortuntely, reflashing the bootloader won't fix the issue, you'll need to get your hands dirty.
+*Generally*, UF2-SAMDX1 bootloaders tend to work with MPUs in the same series, however the memory mapping can sometimes be different. For instance, if you attempt to flash a Feather M4 bootloader (SAMD51J*19*A) onto a board with the SAMD51J*18*A, it may seem like the flash was successful. But, when you try to upload code via the Arduino IDE, you could run into memory corruption that could cause the device to not be recognized. Unfortuntely, reflashing the bootloader won't fix the issue, you'll need to get your hands dirty.
