@@ -9,10 +9,28 @@ Generally, UF2-SAMDX1 bootloaders tend to work with MPUs in the same series, how
 ## UF2-SAMDX1
 ### Prerequisites
 
-Before you begin, you should have a basic understanding of how a bootloader functions and how the Arduino IDE compiles and uploads. It is also helpful to have a good understanding of memory addresses, memory allocation size, bytes that sort of thing.
+Before you start, it is beneficial to have an understanding of how a bootloader works, how the Arduino IDE compiles and uploads, and the fundamentals of memory addresses, memory allocation size, and byte manipulation.
 
-I'm going to presume that you have all of the following installed:
+I'm going to presume that you have the following installed:
 * [Arduino IDE](https://www.arduino.cc/en/software)
 * [Adafruit SAMD Boards Support Package (Arduino Core)](https://learn.adafruit.com/adafruit-arduino-ide-setup/arduino-1-dot-6-x-ide)
 * [UF2-SAMDX1](https://github.com/adafruit/uf2-samdx1)
+
+### Modifying the UF2-SAMDX1 Bootloader
+Make sure that the UF2-SAMDX1 bootloader source even builds a working binary file.
+Find the board pinout that closely resembles your own, then modify the `CHIP_VARIANT` in the .mk file to your chip.
+
+For example, the original FEATHER_M4's board.mk:
+```
+CHIP_FAMILY = samd51
+CHIP_VARIANT = SAMD51J19A
+```
+
+And I modified it to SAMD51J18A since I was using a SAMD51J18A, not a SAMD51J19A:
+```
+CHIP_FAMILY = samd51
+CHIP_VARIANT = SAMD51J18A
+```
+
+This will enable the build to be compiled with your chip if it is already included in the (default Atmel atpack)[https://github.com/adafruit/uf2-samdx1/tree/master/lib] (Look into the atpack and see if your chip has their own .h file in the `include` of your chip family, for example, I am using a samd51, so I go into the `/lib/samd51/include` and see a `samd51j18a.h`, this means that it should compile fine).
 
