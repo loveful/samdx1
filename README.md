@@ -33,5 +33,3 @@ CHIP_VARIANT = SAMD51J18A
 ```
 
 This will enable the build to be compiled with your chip if it is already included in the [default Atmel atpack](https://github.com/adafruit/uf2-samdx1/tree/master/lib) <br />
-Look into the atpack and see if your chip has their own .h file in the `include` of your chip family, for example, I am using a samd51, so I go into the `/lib/samd51/include` and see a `samd51j18a.h`, this means that it should compile fine.
-
