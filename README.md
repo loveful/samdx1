@@ -33,3 +33,30 @@ CHIP_VARIANT = SAMD51J18A
 ```
 
 This will enable the build to be compiled with your chip if it is already included in the [default Atmel atpack](https://github.com/adafruit/uf2-samdx1/tree/master/lib) <br />
+
+Now we need to modify the self-linker and linker scripts for the memory space definitions:
+Find the [SAMDX1 datasheet](https://ww1.microchip.com/downloads/aemDocuments/documents/MCU32/ProductDocuments/DataSheets/SAM-D5x-E5x-Family-Data-Sheet-DS60001507.pdf), and find the Configuration Summary for your board.
+
+Go to the `scripts` directory and there should be 2 linker scripts, one for the samd21j18a and one for the samd51j19a. Create a copy for the self linker and the linker script for the one that represents your board, I chose the samd51j19a, so I created a copy of those two and renamed the name to be "samd51j18a.ld" and "samd51j19a_self.ld".
+
+Open both of those ld files that you just made and modify both the `memory space definitions`s `LENGTH` accordingly to the datasheet you opened. To my knowledge, we don't need to modify the section definitions so don't worry about that unless you need to and you know exactly what you're doing. <br />
+You can also modify the `ORIGIN` for the starting address in the memory block, but I don't suggest unless you know exactly what you're doing.
+
+Now open the `Makefile` in the main directory and find the lines:
+```
+
+ifeq ($(CHIP_FAMILY), samd21)
+LINKER_SCRIPT=scripts/samd21j18a.ld
+BOOTLOADER_SIZE=8192
+SELF_LINKER_SCRIPT=scripts/samd21j18a_self.ld
+endif
+
+ifeq ($(CHIP_FAMILY), samd51)
+LINKER_SCRIPT=scripts/samd51j19a.ld
+BOOTLOADER_SIZE=16384
+SELF_LINKER_SCRIPT=scripts/samd51j19a_self.ld
+endif
+```
+Adjust based on file name of the linker and self-linker scripts and chip you're using and save.
+
+Now, build the source to create a modified .bin file that is flashable for your chip and corresponds to the correct memory mapping.
