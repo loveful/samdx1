@@ -62,3 +62,5 @@ endif
 Adjust based on file name of the linker and self-linker scripts and chip you're using and save.
 
 Now, build the source to create a modified .bin file that is flashable for your chip and corresponds to the correct memory mapping.
+
+### Uploading the Bootloader to your Board
