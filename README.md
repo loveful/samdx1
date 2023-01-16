@@ -17,8 +17,8 @@ I'm going to presume that you have the following installed:
 * [UF2-SAMDX1](https://github.com/adafruit/uf2-samdx1)
 
 ### Modifying the UF2-SAMDX1 Bootloader
-Make sure that the UF2-SAMDX1 bootloader source even builds a working binary file.
-Find the board pinout that closely resembles your own, then modify the `CHIP_VARIANT` in the .mk file to your chip. <b>
+Make sure that the UF2-SAMDX1 bootloader source even builds a working binary file. <br />
+Find the board pinout that closely resembles your own, then modify the `CHIP_VARIANT` in the .mk file to your chip.
 
 For example, the original FEATHER_M4's board.mk:
 ```
