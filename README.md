@@ -67,5 +67,5 @@ Now, build the source to create a modified .bin file that is flashable for your 
 
 Now flash the .bin file you just compiled onto the board with a device programmer (e.c JTAG) and something that can talk to your device programmer (e.c Atmel Studio)
 
-### Modifying Arduino Core for Arduino IDE
+## Modifying Arduino Core for Arduino IDE
 *to be contiuned*
